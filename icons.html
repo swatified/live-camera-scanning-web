@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose the Functionality </title>
+    <link rel="stylesheet" type="text/css" href="styleicon.css">
+</head>
+
+<body>
+    <div class="container">
+        <button class="button1">
+            <img src="weapon.jpg" alt="Image 1" id="image-toggle1">
+            <div class="popup" id="popup1">
+                <div class="popup-content">
+                  <span class="close" id="close1">&times;</span>
+                  <a href="live.html">Go to Real-time Detection</a>
+                  <br><a id="upload-video-li" href="#">Upload Video Path</a>
+                  <div id="upload-video-container" style="display: none;">
+                    <input type="file" id="video-file-input">
+                  </div>
+                </div>
+              </div>
+            <p>Weapon Detection</p>
+        </button>
+        <button class="button1">
+            <img src="unidentified.jpg" alt="Image 2">
+            <p>. Unidentified Object Detection</p>
+        </button>
+        <button class="button1">
+            <img src="fire.jpg" alt="Image 3">
+            <p>Fire Detection Alarm</p>
+        </button>
+        <button class="button2">
+            <img src="crowd.jpg" alt="Image 4">
+            <p>Crowd Detection</p>
+        </button>
+        <button class="button2">
+            <img src="objdet.jpg" alt="Image 5">
+            <p><a href="object.html">Object Detection</a></p>
+        </button>
+        <button class="button2">
+            <img src="action.jpg" alt="Image 6">
+            <p>Action Recognition</p>
+        </button>
+    </div>
+    <script src="scripticon.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+body {
+    background-image: url('bg2.png');
+    background-size: cover;
+    overflow: auto;
+  }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.button1 {
+    display: inline-block;
+    cursor: pointer;
+    color:rgb(86, 105, 174);
+    font-size: 1.7em;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+}
+
+.button1 img {
+    border-radius: 10%;
+    width: 280px;
+    height: 280px;
+    margin-top: 20px;
+    margin-right: 60px;
+    margin-left:100px;
+    opacity: 0.8;
+}
+
+.button1:hover {
+    transform: scale(1.1);
+    animation: fadeIn 2s ease-in-out forwards;
+    opacity:0.5;
+ }
+
+.button1 p {
+    margin-top: 5px;
+}
+
+.button2 {
+    display: inline-block;
+    cursor: pointer;
+    color:rgb(86, 105, 174);
+    font-size: 1.7em;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.button2:hover {
+    transform: scale(1.1);
+    animation: fadeIn 2s ease-in-out forwards;
+    opacity:0.5;
+ }
+
+.button2 img {
+    border-radius: 10%;
+    width: 280px;
+    height: 280px;
+    margin-top: 0.1px;
+    margin-right: 60px;
+    margin-left:100px;
+    opacity: 0.8;
+}
+
+.button2 p {
+    margin-top: 5px;
+}
+
+
+/* Adding pop-up */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .popup-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+  }
+  
+  .popup-content a {
+    font-size: 1rem;
+    padding: 5px 10px;
+    color: #000;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }

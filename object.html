@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection</title>
+    <style>
+        body {
+            background-image: url('objy.jpg');
+            background-size: cover;
+        }
+        button {
+            display: inline-block;
+            cursor: pointer;
+            color:rgb(86, 105, 174);
+            font-size: 2.1em;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin: 5px;
+            text-align: center;
+        }
+        .button img {
+            border-radius: 10%;
+            width: 400px;
+            height: 400px;
+            margin-top: 100px;
+            margin-right: 60px;
+            margin-left: 200px;
+            opacity: 0.8;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            animation: fadeIn 1.5s ease-in-out forwards;
+            opacity:0.5;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .popup {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            overflow: auto;
+        }
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button p {
+            text-align: center;  
+        }
+        #upload-video-container,
+        #upload-video-container-2 {
+            display: none;
+        }
+        #upload-video-container input,
+        #upload-video-container-2 input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="button">
+        <img src="itemrec.jpg" alt="Image 2" id="image-toggle1">
+        <div class="popup" id="popup1">
+            <div class="popup-content">
+                <span class="close" id="close1">&times;</span>
+                <a href="live2.html">Go to Real-time Detection</a><br>
+                <a id="upload-video-li" href="#">Upload Video Path</a>
+                <div id="upload-video-container">
+                    <input type="file" id="video-file-input">
+                </div>
+            </div>
+        </div>
+        <p>Item Recognition</p>
+    </button>
+    <button class="button">
+        <img src="vehicle.jpg" alt="Image 3" id="image-toggle2">
+        <div class="popup" id="popup2">
+            <div class="popup-content">
+                <span class="close" id="close2">&times;</span>
+                <a href="live3.html">Go to Vehicle Tracking</a><br>
+                <a id="upload-video-li-2" href="#">Upload Video Path</a>
+                <div id="upload-video-container-2">
+                    <input type="file" id="video-file-input-2">
+                </div>
+            </div>
+        </div>
+        <p>. . . . . . Vehicle Tracking and Counting</p>
+    </button>
+
+    <script>
+        const imageToggle1 = document.getElementById("image-toggle1");
+        const popup1 = document.getElementById("popup1");
+        const close1 = document.getElementById("close1");
+
+        imageToggle1.addEventListener("click", function() {
+            popup1.style.display = "block";
+        });
+
+        close1.addEventListener("click", function() {
+            popup1.style.display = "none";
+        });
+
+        const uploadVideoLink1 = document.getElementById("upload-video-li");
+        const uploadVideoContainer1 = document.getElementById("upload-video-container");
+
+        uploadVideoLink1.addEventListener("click", function() {
+            uploadVideoContainer1.style.display = "block";
+            popup1.style.display = "none";
+            document.getElementById("video-file-input").click();
+        });
+
+        const videoFileInput1 = document.getElementById("video-file-input");
+
+        videoFileInput1.addEventListener("change", function() {
+            const popupContent = document.querySelector("#popup1 .popup-content");
+            popupContent.innerHTML = "";
+            const fileName = videoFileInput1.value.split("\\").pop();
+            const p = document.createElement("p");
+            p.textContent = `Selected file: ${fileName}`;
+            popupContent.appendChild(p);
+        });
+
+        const imageToggle2 = document.getElementById("image-toggle2");
+        const popup2 = document.getElementById("popup2");
+        const close2 = document.getElementById("close2");
+
+        imageToggle2.addEventListener("click", function() {
+            popup2.style.display = "block";
+        });
+
+        close2.addEventListener("click", function() {
+            popup2.style.display = "none";
+        });
+
+        const uploadVideoLink2 = document.getElementById("upload-video-li-2");
+        const uploadVideoContainer2 = document.getElementById("upload-video-container-2");
+
+        uploadVideoLink2.addEventListener("click", function() {
+            uploadVideoContainer2.style.display = "block";
+            popup2.style.display = "none";
+            document.getElementById("video-file-input-2").click();
+        });
+
+        const videoFileInput2 = document.getElementById("video-file-input-2");
+
+        videoFileInput2.addEventListener("change", function() {
+            const popupContent = document.querySelector("#popup2 .popup-content");
+            popupContent.innerHTML = "";
+            const fileName = videoFileInput2.value.split("\\").pop();
+            const p = document.createElement("p");
+            p.textContent = `Selected file: ${fileName}`;
+            popupContent.appendChild(p);
+        });
+    </script>
+</body>
+</html>
